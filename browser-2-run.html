@@ -1,0 +1,138 @@
+<!--
+  #%L
+  Codenjoy - it's a dojo-like platform from developers to developers.
+  %%
+  Copyright (C) 2012 - 2022 Codenjoy
+  %%
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public
+  License along with this program.  If not, see
+  <http://www.gnu.org/licenses/gpl-3.0.html>.
+  #L%
+  -->
+<html>
+    <head>
+        <meta charset="utf8">
+        <script src="engine/browser/jquery-3.1.0.js"></script>
+        <script>
+            if (typeof module == 'undefined') {
+                module = {};
+            }
+        </script>
+
+        <script src="browser-0-settings.js"></script>
+
+        <script src="engine/stuff.js"></script>
+        <script src="engine/browser/node-stub.js"></script>
+        <script src="engine/games.js"></script>
+
+        <script src="engine/direction.js"></script>
+        <script src="engine/lxy.js"></script>
+        <script src="engine/point.js"></script>
+        <script src="engine/board.js"></script>
+
+        <script src="games/mollymage/direction.js"></script>
+        <script src="games/mollymage/elements.js"></script>
+        <script src="games/mollymage/board.js"></script>
+        <script src="games/mollymage/solver.js"></script>
+
+        <script src="engine/browser/canvases.js"></script>
+        <script src="engine/runner.js"></script>
+        <script src="engine/browser/main.js"></script>
+
+        <style>
+            #board {
+                overflow: hidden;
+                vertical-align: top;
+                background: transparent;
+                margin: 0px;
+                border: none;
+                position: absolute;
+                mix-blend-mode: overlay;
+                font-family: 'Courier New';
+                font-weight: bold;
+                line-height: 0.61em;
+                font-size: 39.3px;
+
+                /* updated in main.js
+                left: 9px;
+                top: 9px;
+                */
+            }
+
+            canvas {
+                /* updated in main.js
+                width:543px;
+                height:543px;
+                */
+            }
+
+            #log-area {
+                line-height: 16px;
+                font-size: 20px;
+                font-family: 'Courier New';
+                width: 100%;
+                height: 90%;
+            }
+
+            .right {
+                float: right;
+                width: 55%;
+            }
+
+            .left {
+                float: left;
+                width: 40%;
+            }
+
+            table {
+                width: 100%;
+                height: 100%;
+            }
+
+            td {
+                vertical-align: top;
+            }
+
+            .canvas-row {
+                width: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td class="canvas-row">
+                    <canvas id="board-canvas">
+                        Your browser does not support the canvas element.
+                    </canvas>
+                    <textarea id="board"></textarea>
+                </td>
+                <td>
+                    <input type="checkbox" id="add-to-end">Add to end</input>
+                    <input type="checkbox" checked="true" id="show-graphic">Graphic</input>
+                    <input type="checkbox" checked="true" id="show-text">Text</input>
+                    <input type="checkbox" checked="true" id="client-connect">Connected</input>
+                    <label style="display: none;">
+                        <input type="checkbox" checked="false" id="joystick">
+                        Joystick
+                    </label>
+                    <br>
+                    <input type="text" id="game-to-run" size="15" readonly>
+                    <input type="text" id="board-url" size="80" readonly>
+                    <br>
+                    <textarea id="log-area"></textarea>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
